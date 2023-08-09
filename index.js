@@ -72,7 +72,22 @@ app.put("/api/:id", (req, res) => {
 
 // DELETE => DELETE a name
 app.delete("/api/:id", (req, res) => {
-  res.send({ message: "TBD" });
+  const id = parseInt(req.params.id);
+  console.log("id = ", id);
+
+  // 1. Read all the data from the database file (it should be an array)
+  // [ {id: 123, name: "Hello"}, ... ]
+  const data = JSON.parse(fs.readFileSync(DATABASE));
+  console.log("data = ", data);
+
+  // 2. Filter out the the entry we want to remove.
+  const results = data.filter((item) => item.id != id);
+  console.log("results = ", results);
+
+  // 3. Write the data back into the database.
+  fs.writeFileSync(DATABASE, JSON.stringify(results));
+
+  res.send({ message: "Deleted item with id:" + id });
 });
 
 app.listen(port, () => {
