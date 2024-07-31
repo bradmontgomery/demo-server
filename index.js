@@ -67,7 +67,23 @@ app.post("/api", (req, res) => {
 
 // PUT => UPDATE a name
 app.put("/api/:id", (req, res) => {
-  res.send({ message: "TBD" });
+  const id = parseInt(req.params.id);
+
+  // 1. Read all the data from the database file (it should be an array)
+  // [ {id: 123, name: "Hello"}, ... ]
+  const data = JSON.parse(fs.readFileSync(DATABASE));
+
+  // 2. Find the entry we want to change.
+  for (let i = 0; i < data.length; i++) {
+    if (data[i].id === id) {
+      data[i].name = req.body.name;
+    }
+  }
+
+  // 3. Write the data back into the database.
+  fs.writeFileSync(DATABASE, JSON.stringify(data));
+
+  res.send({ message: "Item updated: id=" + req.params.id });
 });
 
 // DELETE => DELETE a name
