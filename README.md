@@ -53,7 +53,12 @@ Sample `scripts` section from `package.js`:
 
 ### The "database"
 
-For this project we'll just use a file to store our data. Copy the `database.json` file into your project directory. It should be in the same folder as your `index.js` file.
+For this project we'll just use a file to store our data. Copy the following into a `database.json` file into your project directory. 
+It should be in the same folder as your `index.js` file.
+
+```json
+[{"id":1,"name":"Foo"},{"id":2,"name":"Bar"},{"id":3,"name":"Bingo"}]
+```
 
 
 ## resources
