@@ -5,7 +5,18 @@ A simple express-based backend server API (see [expressjs.com](https://expressjs
 _This is the backend API powering the `Names` component in the [demo-project](https://github.com/bradmontgomery/demo-project)_
 
 
-## project setup
+## Quickstart
+
+1. Clone this repo.
+2. `cd` into the `demo-server` folder
+3. Run `npm install`, then
+4. Run `npm run dev`
+
+# Project Setup
+
+The following are the steps I took to create this project.
+
+## How I created this project
 
 Let's create the project in which we'll build the API:
 
@@ -19,7 +30,7 @@ Let's create the project in which we'll build the API:
     - test command: (leave this blank)                                                        
     - git repository:  (leave this blank)                                                                 
     - keywords:   (leave this blank)                                                                       
-    - author:  write your name!                                                                         
+    - author: write your name!                                                                         
     - license: MIT 
     - Is this OK? yes
 - `npm install express` to install the Express.js framework.
@@ -56,8 +67,3 @@ This project makes use of a number of different tools.
 - httpie as a tool to interact with the API: https://httpie.io
     - You're welcome to use the desktop application: https://httpie.io/download
     - OR the command-line (cli) application:  https://httpie.io/cli
-
-
-## WIP
-
-This repo is a _work in progress_. When it's completed, it should look something like [this gist](https://gist.github.com/bradmontgomery/98282f7a0ef797cdd47b4fc272a58c21)
