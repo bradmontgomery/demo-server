@@ -45,7 +45,7 @@ app.get("/api/:id", (req, res) => {
 app.post("/api", (req, res) => {
   // 0. How do we get the submitted data from the HTTP request?
   console.log(req.method + " body: ", req.body);
-  let result = req.body;
+  let result = req.body; // { "name": "Brad" }
 
   // 1. Read all of the data from the "database" file.
   let names = JSON.parse(fs.readFileSync(DATABASE));
@@ -68,6 +68,7 @@ app.post("/api", (req, res) => {
 // PUT => UPDATE a name
 app.put("/api/:id", (req, res) => {
   const id = parseInt(req.params.id);
+  const newName = req.body.name;
 
   // 1. Read all the data from the database file (it should be an array)
   // [ {id: 123, name: "Hello"}, ... ]
@@ -76,14 +77,15 @@ app.put("/api/:id", (req, res) => {
   // 2. Find the entry we want to change.
   for (let i = 0; i < data.length; i++) {
     if (data[i].id === id) {
-      data[i].name = req.body.name;
+      data[i].name = newName;
     }
   }
 
   // 3. Write the data back into the database.
   fs.writeFileSync(DATABASE, JSON.stringify(data));
 
-  res.send({ message: "Item updated: id=" + req.params.id });
+  // 4. Send back the new, updated object.
+  res.send({ id: id, name: newName });
 });
 
 // DELETE => DELETE a name
