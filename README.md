@@ -2,7 +2,7 @@
 
 A simple express-based backend server API (see [expressjs.com](https://expressjs.com/)). 
 
-_This is the backend API powering the `Names` component in the [demo-project](https://github.com/bradmontgomery/demo-project)_
+_This is the backend API powering the `Names` component in the [demo-project](https://github.com/bradmontgomery/demo-project) (2023) and [taradiddle](https://github.com/bradmontgomery/taradiddle/) (2024)._
 
 
 ## Quickstart
@@ -18,23 +18,29 @@ The following are the steps I took to create this project.
 
 ## How I created this project
 
-Let's create the project in which we'll build the API:
+_Updated for node v22.14.0_!
 
-- `mkdir demo-server`
-- `cd demo-server`
-- `npm init` (follow the prompts.. below is what I used)
+Let's create the project in which we'll build the API. You run the 
+following commands in a terminal (I used a bash terminal [using WSL](https://learn.microsoft.com/en-us/windows/wsl/))
+
+- `mkdir demo-server` to create a directory named `demo-server/`
+- `cd demo-server` to change into that directory.
+- `npm init` to set up a node-based project; follow the prompts.. below is what I used:
     - package name: I called mine "demo-server"
     - version: 1.0.0
     - description: a simple express-based api
     - entry point: index.js
     - test command: (leave this blank)                                                        
-    - git repository:  (leave this blank)                                                                 
-    - keywords:   (leave this blank)                                                                       
+    - git repository: (leave this blank)                                                                 
+    - keywords: (leave this blank)                                                                       
     - author: write your name!                                                                         
     - license: MIT 
     - Is this OK? yes
-- `npm install express` to install the Express.js framework.
-- `npm install nodemon` to install the `nodemon` library.
+- Now, we need to install packages that we plan to use:
+  - `npm install express` to install the Express.js framework.
+  - `npm install nodemon` to install the `nodemon` library.
+  - `npm install cors` to install the `cors` library (learn more at [MDN: Cross-Origin Resource Sharing](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS))
+  - `npm install fs` to install the `fs` library to allow us to access the local filesystem.
 
 Now, configure the project so that we're using `nodemon` to auto-reload our server whenever we make changes to the source code:
 
