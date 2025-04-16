@@ -6,6 +6,7 @@ const app = express();
 app.use(express.json()); // Middleware for parsing application/json payloads.
 app.use(cors()); // Middleware for CORS support.
 
+const host = "127.0.0.1";
 const port = 3000;
 const DATABASE = "./database.json"; // Where is our data stored.
 
@@ -108,6 +109,6 @@ app.delete("/api/:id", (req, res) => {
   res.send({ message: "Deleted item with id:" + id });
 });
 
-app.listen(port, () => {
+app.listen(port, host, () => {
   console.log(`Listening on port ${port}`);
 });
